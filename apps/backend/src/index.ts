@@ -1,7 +1,19 @@
+import { password } from "bun";
 import { Elysia } from "elysia";
+import { z } from "zod";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
-
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+const app = new Elysia()
+  .post(
+    "/api/v1/signup",
+    ({ body }) => {
+      console.log(body);
+      return "hi there";
+    },
+    {
+      body: z.object({
+        username: z.string(),
+        password: z.string(),
+      }),
+    },
+  )
+  .listen(3000);
