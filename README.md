@@ -1,3 +1,1 @@
-# PiggsField
-Cloning HiggsField just for practice
-initial commit
+this is a HiggsField clone created just for practice purpose
